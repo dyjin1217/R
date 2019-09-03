@@ -4,6 +4,10 @@
 library(tidyverse)
 library(plotly)
 
+# Warning 끄기
+options(warn=-1)
+
+
 # 예제 데이터 : ggplot2::diamonds
 # 양적 자료   : price
 
@@ -227,5 +231,56 @@ ggplot2::ggplot(data=diamonds, mapping = aes(x = cut, y = price)) +
   theme(legend.position = "right") +
   facet_wrap(~color, nrow=1, ncol=7)
 
+# plotly 패키지를 이용한 상자그림 작성하기
+# plotly::plot_ly(data = ,
+#                 x    = ~,
+#                 y    = ~,
+#                 type = "box",)
+#                 color = I("color"))
+
+plotly::plot_ly(data = diamonds,
+                y = ~price,
+                type = "box")
+
+plotly::plot_ly(data = diamonds,
+                y = ~price,
+                type = "box",
+                color = I("purple"))
+
+plotly::plot_ly(data = diamonds,
+                x = ~cut,
+                y = ~price,
+                type = "box",
+                color = I("purple"))
+
+plotly::plot_ly(data = diamonds,
+                x = ~cut,
+                y = ~price,
+                type = "box",
+                color = I("purple"))
+
+# 집단별 상자그림의 생깔
+plotly::plot_ly(data = diamonds,
+                x = ~cut,
+                y = ~price,
+                type = "box",
+                color = ~cut)
+
+# 집단별 상자그림의 생깔
+plotly::plot_ly(data = diamonds,
+                x = ~cut,
+                y = ~price,
+                type = "box",
+                color = ~cut)
 
 
+plotly::plot_ly(data = diamonds,
+                x = ~cut,
+                y = ~price,
+                type = "box",
+                color = ~color)
+
+plotly::plot_ly(data = diamonds,
+                x = ~interaction(cut,color),
+                y = ~price,
+                type = "box")
