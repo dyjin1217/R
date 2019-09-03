@@ -1,13 +1,13 @@
-# Âü°íÀÚ·á : ÀÌºÎÀÏ ±³¼ö´Ô Youtube °­ÀÇ
+# ì°¸ê³ ìë£Œ : ì´ë¶€ì¼ êµìˆ˜ë‹˜ Youtube ê°•ì˜
 
-# Frequency(ºóµµ ±¸ÇÏ±â)
+# Frequency(ë¹ˆë„ êµ¬í•˜ê¸°)
 
 library(ggplot2)
 
 # ggplot2::diamonds
-# ÁúÀû ÀÚ·á : cut, color, clarity
+# ì§ˆì  ìë£Œ : cut, color, clarity
 
-# (1) ºóµµ(Frequency) ±¸ÇÏ±â
+# (1) ë¹ˆë„(Frequency) êµ¬í•˜ê¸°
 # table(data$variable)
 table(diamonds$cut)
 
@@ -15,13 +15,13 @@ table(diamonds$cut)
 sort(table(diamonds$cut), decreasing = TRUE)
 
 
-# (2) ¹éºĞÀ²(Percent) ±¸ÇÏ±â
+# (2) ë°±ë¶„ìœ¨(Percent) êµ¬í•˜ê¸°
 # prop.table(frequency)*100
 prop.table(table(diamonds$cut))*100
 sort(prop.table(table(diamonds$cut))*100 , decreasing 
      = TRUE)
 
-# ¹éºĞÀ²ÀÇ ¼Ò¼öÁ¡ ÀÚ¸®¼ö´Â 1ÀÚ¸®¸¸±îÁö¸¸ Ç¥ÇöÇÔ
+# ë°±ë¶„ìœ¨ì˜ ì†Œìˆ˜ì  ìë¦¬ìˆ˜ëŠ” 1ìë¦¬ë§Œê¹Œì§€ë§Œ í‘œí˜„í•¨
 # round(percent, digits = 1)
 round(sort(prop.table(table(diamonds$cut))*100 , 
            decreasing = TRUE) , digits = 1)
@@ -30,32 +30,32 @@ round(sort(prop.table(table(diamonds$cut))*100 ,
 library(tidyverse)
 library(prettyR)
 
-# ¿¹Á¦ µ¥ÀÌÅÍ : ggplot2::diamonds
-# ÁúÀû ÀÚ·á     : cut, color, clarity
+# ì˜ˆì œ ë°ì´í„° : ggplot2::diamonds
+# ì§ˆì  ìë£Œ     : cut, color, clarity
 
 
-# 1. ÀÏº¯·®(Uni-Variate) ÁúÀû ÀÚ·áÀÇ ºĞ¼®
-# 1.1 Ç¥ : ºóµµ, ¹éºĞÀ²
-# (1) ºóµµ ±¸ÇÏ±â   : table(data$variable)
-# (2) ¹éºĞÀ² ±¸ÇÏ±â : prop.table(table(data$variable))* 100
+# 1. ì¼ë³€ëŸ‰(Uni-Variate) ì§ˆì  ìë£Œì˜ ë¶„ì„
+# 1.1 í‘œ : ë¹ˆë„, ë°±ë¶„ìœ¨
+# (1) ë¹ˆë„ êµ¬í•˜ê¸°   : table(data$variable)
+# (2) ë°±ë¶„ìœ¨ êµ¬í•˜ê¸° : prop.table(table(data$variable))* 100
 
-# ºóµµ¿Í ¹éºĞÀ²À» ÇÑ ¹ø¿¡ ±¸ÇÏ±â
+# ë¹ˆë„ì™€ ë°±ë¶„ìœ¨ì„ í•œ ë²ˆì— êµ¬í•˜ê¸°
 # prettyR::freq(data$variable,
 #               display.na = TRUE or FALSE,
 #               decr.order = TRUE or FALSE)
 
 prettyR::freq(diamonds$cut)
 
-# NA¿Í À¯È¿¹éºĞÀ²À» Ãâ·ÂÇÏÁö ¾ÊÀ½
+# NAì™€ ìœ íš¨ë°±ë¶„ìœ¨ì„ ì¶œë ¥í•˜ì§€ ì•ŠìŒ
 prettyR::freq(diamonds$cut,
               display.na = FALSE)
 
-# ºóµµ¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â
+# ë¹ˆë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ê¸°
 prettyR::freq(diamonds$cut,
               display.na = FALSE,
               decr.order = FALSE)
 
-# ºóµµ¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â
+# ë¹ˆë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ê¸°
 prettyR::freq(diamonds$cut,
               display.na = FALSE,
               decr.order = TRUE)
@@ -64,15 +64,15 @@ library(tidyverse)
 library(prettyR)
 library(epiDisplay)
 
-# ¿¹Á¦ µ¥ÀÌÅÍ : ggplot2::diamonds
-# ÁúÀû ÀÚ·á : cut, color, clarity
+# ì˜ˆì œ ë°ì´í„° : ggplot2::diamonds
+# ì§ˆì  ìë£Œ : cut, color, clarity
 
-# 1. ÀÏº¯·®(Uni-Variate) ÁúÀû ÀÚ·áÀÇ ºĞ¼®
-# 1.1 Ç¥ : ºóµµ, ¹éºĞÀ²
-# (1) ºóµµ ±¸ÇÏ±â   : table(data$variable)
-# (2) ¹éºĞÀ² ±¸ÇÏ±â : prop.table(table(data$variable)) * 100
+# 1. ì¼ë³€ëŸ‰(Uni-Variate) ì§ˆì  ìë£Œì˜ ë¶„ì„
+# 1.1 í‘œ : ë¹ˆë„, ë°±ë¶„ìœ¨
+# (1) ë¹ˆë„ êµ¬í•˜ê¸°   : table(data$variable)
+# (2) ë°±ë¶„ìœ¨ êµ¬í•˜ê¸° : prop.table(table(data$variable)) * 100
 
-# ºóµµ¿Í ¹éºĞÀ²À» ÇÑ ¹ø¿¡ ±¸ÇÏ±â : prettyR::freq()
+# ë¹ˆë„ì™€ ë°±ë¶„ìœ¨ì„ í•œ ë²ˆì— êµ¬í•˜ê¸° : prettyR::freq()
 # prettyR::freq(data$variable,
 #               display.na = TRUE or FALSE,
 #               decr.order = TRUE or FALSE)
@@ -90,24 +90,24 @@ prettyR::freq(diamonds$cut,
               display.na = FALSE,
               decr.order = TRUE)
 
-# ºóµµ¿Í ¹éºĞÀ²À» ÇÑ ¹ø¿¡ ±¸ÇÏ±â : epiDisplay::tab1()
+# ë¹ˆë„ì™€ ë°±ë¶„ìœ¨ì„ í•œ ë²ˆì— êµ¬í•˜ê¸° : epiDisplay::tab1()
 # epiDisply::tab1(data$variable,
 #                 cum.percent = TRUE or FALSE,
 #                 sort.group  = "increasing" or "decreasing")
 
 epiDisplay::tab1(diamonds$cut)
 
-# ´©Àû ¹éºĞÀ²À» Ãâ·ÂÇÏÁö ¾ÊÀ½
+# ëˆ„ì  ë°±ë¶„ìœ¨ì„ ì¶œë ¥í•˜ì§€ ì•ŠìŒ
 epiDisplay::tab1(diamonds$cut,
                  cum.percent = FALSE)
 
 
-# ºóµµ¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â
+# ë¹ˆë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ê¸°
 epiDisplay::tab1(diamonds$cut,
                  cum.percent = FALSE,
                  sort.group  = "decreasing")
 
-# ºóµµ¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â
+# ë¹ˆë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ê¸°
 epiDisplay::tab1(diamonds$cut,
                  cum.percent = FALSE,
                  sort.group  = "increasing") 
