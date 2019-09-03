@@ -1,6 +1,7 @@
+# 참고자료 : 이부일 교수님 Youtube 강의
+
 library(tidyverse)
 library(RColorBrewer)
-
 
 # 예제 데이터 : ggplot2::diamonds
 # 질적 자료   : cut, color, clarity
