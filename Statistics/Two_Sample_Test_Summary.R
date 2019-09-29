@@ -50,8 +50,7 @@ by(sleep$extra, sleep$group, var)
 t.test(formula = extra ~ group, 
        data = sleep,
        alternative = "two.sided",
-       var.equal = TRUE
-       )
+       var.equal = TRUE)
 
 # 최종결론
 # 유의확률이 0.079이므로 유의수준 0.05에서
@@ -59,6 +58,21 @@ t.test(formula = extra ~ group,
 # 차이는 없는 것으로 나타
 
 
+# 3단계 : 만약에
+# 2단계의 결론이 등분산성 가정이 깨지는 것으로 나타났다면
+# 이분산이 가정된 2표본 t검정(two sample t-test)
+
+# t.test(formula ~ variable ~ variable,
+#        data = ,
+#        alternative = )
+# t.test(formula ~ 양적자료 ~ 질적자료,
+#        data = ,
+#        alternative = )
+
+t.test(formula = extra ~ group, 
+       data = sleep,
+       alternative = "two.sided",
+       var.equal = FALSE)
 
 
 
